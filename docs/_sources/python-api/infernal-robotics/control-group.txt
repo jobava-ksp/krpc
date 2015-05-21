@@ -1,0 +1,76 @@
+ControlGroup
+============
+
+.. class:: ControlGroup
+
+   A group of servos, obtained by calling :attr:`InfernalRobotics.servo_groups`
+   or :attr:`InfernalRobotics.servo_group_with_name`. Represents the "Servo Groups"
+   in the InfernalRobotics UI.
+
+   .. attribute:: name
+
+      Gets of sets the name of the group.
+
+      :rtype: string
+
+   .. attribute:: forward_key
+
+      Gets or sets the key assigned to be the "forward" key for the group.
+
+      :rtype: string
+
+   .. attribute:: reverse_key
+
+      Gets or sets the key assigned to be the "reverse" key for the group.
+
+      :rtype: string
+
+   .. attribute:: speed
+
+      Gets or sets the speed multiplier for the group.
+
+      :rtype: float
+
+   .. attribute:: expanded
+
+      Gets or sets whether the group is expanded in the InfernalRobotics UI.
+
+      :rtype: bool
+
+   .. attribute:: servos
+
+      Gets the servos that are in the group.
+
+      :rtype: ``list`` ( :class:`Servo` )
+
+   .. method:: servo_with_name (name)
+
+      Returns the servo with the given *name* from this group, or ``None`` if
+      none exists.
+
+      :param string name: name of servo to find
+      :rtype: :class:`Servo`
+
+   .. method:: move_right ()
+
+      Moves all of the servos in the group to the right.
+
+   .. method:: move_left ()
+
+      Moves all of the servos in the group to the left.
+
+   .. method:: move_center ()
+
+      Moves all of the servos in the group to the center.
+
+   .. method:: move_next_preset ()
+
+      Moves all of the servos in the group to the next preset.
+
+   .. method:: move_prev_preset ()
+
+      Moves all of the servos in the group to the previous preset.
+
+   .. method:: stop ()
+
+      Stops the servos in the group.

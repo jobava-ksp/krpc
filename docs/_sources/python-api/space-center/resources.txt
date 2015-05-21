@@ -1,0 +1,40 @@
+Resources
+=========
+
+.. class:: Resources
+
+   Created by calling :attr:`Vessel.resources`,
+   :attr:`Vessel.resources_in_decouple_stage` or :attr:`Part.resources`.
+
+   .. attribute:: names
+
+      Gets a list of resource names that can be stored.
+
+      :rtype: ``list`` ( string )
+
+   .. method:: has_resource (name)
+
+      Returns ``True`` if the named resource can be stored.
+
+      :param string name: The name of the resource.
+      :rtype: bool
+
+   .. method:: max (name)
+
+      Returns the amount of a resource that can be stored.
+
+      :param string name: The name of the resource.
+      :rtype: float
+
+   .. method:: amount (name)
+
+      Returns the amount of a resource that is currently stored.
+
+      :param string name: The name of the resource.
+      :rtype: float
+
+   .. staticmethod:: Density (name)
+
+      Returns the density of the named resource, in kg/l.
+
+      :rtype: float

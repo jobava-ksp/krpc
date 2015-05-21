@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Alarm &mdash; kRPC 0.1.9 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="kRPC 0.1.9 documentation" href="../../index.html"/>
+        <link rel="up" title="Kerbal Alarm Clock API" href="../../kerbal-alarm-clock-api.html"/>
+        <link rel="next" title="AlarmType" href="alarm-type.html"/>
+        <link rel="prev" title="KerbalAlarmClock" href="kerbal-alarm-clock.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> kRPC</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#the-python-client">The Python Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#hello-world-script">&#8216;Hello World&#8217; Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/suborbital-flight.html">Sub-Orbital Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/launch-into-orbit.html">Launch into Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/pitch-heading-roll.html">Pitch, Heading and Roll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/parts.html">Interacting with Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/docking-guidance.html">Docking Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../python-client.html">Python Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python-client.html#connecting-to-the-server">Connecting to the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python-client.html#interacting-with-the-server">Interacting with the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python-client.html#streaming-data-from-the-server">Streaming Data from the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python-client.html#module-krpc">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../space-center-api.html">SpaceCenter API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/space-center.html">SpaceCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/vessel.html">Vessel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/celestial-body.html">CelestialBody</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/flight.html">Flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/orbit.html">Orbit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/parts.html">Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/resources.html">Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/node.html">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/comms.html">Comms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/reference-frame.html">ReferenceFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/auto-pilot.html">AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../space-center/geometry-types.html">Geometry Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../infernal-robotics-api.html">InfernalRobotics API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../infernal-robotics/infernal-robotics.html">InfernalRobotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../infernal-robotics/control-group.html">ControlGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../infernal-robotics/servo.html">Servo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../infernal-robotics-api.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../kerbal-alarm-clock-api.html">Kerbal Alarm Clock API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kerbal-alarm-clock.html">KerbalAlarmClock</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm-type.html">AlarmType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm-action.html">AlarmAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kerbal-alarm-clock-api.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compiling.html">Compiling kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../compiling.html#the-server-plugin">The Server Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../compiling.html#the-python-client-library">The Python Client Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending.html">Extending kRPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../extending.html#the-krpc-architecture">The kRPC Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extending.html#service-api">Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extending.html#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../communication-protocol.html">Communication Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#establishing-a-connection">Establishing a Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#remote-procedures">Remote Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#protocol-buffer-encoding">Protocol Buffer Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#streams">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#krpc-service">KRPC Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../communication-protocol.html#service-description-message">Service Description Message</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">kRPC</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../kerbal-alarm-clock-api.html">Kerbal Alarm Clock API</a> &raquo;</li>
+      
+    <li>Alarm</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/python-api/kerbal-alarm-clock/alarm.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="alarm">
+<h1>Alarm<a class="headerlink" href="#alarm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="Alarm">
+<em class="property">class </em><tt class="descname">Alarm</tt><a class="headerlink" href="#Alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an alarm. Obtained by calling <a class="reference internal" href="kerbal-alarm-clock.html#KerbalAlarmClock.alarms" title="KerbalAlarmClock.alarms"><tt class="xref py py-attr docutils literal"><span class="pre">KerbalAlarmClock.alarms</span></tt></a>,
+<a class="reference internal" href="kerbal-alarm-clock.html#KerbalAlarmClock.alarm_with_name" title="KerbalAlarmClock.alarm_with_name"><tt class="xref py py-meth docutils literal"><span class="pre">KerbalAlarmClock.alarm_with_name()</span></tt></a> or
+<a class="reference internal" href="kerbal-alarm-clock.html#KerbalAlarmClock.alarms_with_type" title="KerbalAlarmClock.alarms_with_type"><tt class="xref py py-meth docutils literal"><span class="pre">KerbalAlarmClock.alarms_with_type()</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="Alarm.action">
+<tt class="descname">action</tt><a class="headerlink" href="#Alarm.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the action that the alarm triggers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="alarm-action.html#AlarmAction" title="AlarmAction"><tt class="xref py py-class docutils literal"><span class="pre">AlarmAction</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.margin">
+<tt class="descname">margin</tt><a class="headerlink" href="#Alarm.margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the number of seconds before the event that the alarm will
+fire.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.time">
+<tt class="descname">time</tt><a class="headerlink" href="#Alarm.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the time at which the alarm will fire.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.type">
+<tt class="descname">type</tt><a class="headerlink" href="#Alarm.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the type of the alarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="alarm-type.html#AlarmType" title="AlarmType"><tt class="xref py py-class docutils literal"><span class="pre">AlarmType</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.id">
+<tt class="descname">id</tt><a class="headerlink" href="#Alarm.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the unique identifier for the alarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.name">
+<tt class="descname">name</tt><a class="headerlink" href="#Alarm.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the short name of the alarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.notes">
+<tt class="descname">notes</tt><a class="headerlink" href="#Alarm.notes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the long description of the alarm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.remaining">
+<tt class="descname">remaining</tt><a class="headerlink" href="#Alarm.remaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of seconds until the alarm will fire.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.repeat">
+<tt class="descname">repeat</tt><a class="headerlink" href="#Alarm.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the alarm should be repeated after it has fired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.repeat_period">
+<tt class="descname">repeat_period</tt><a class="headerlink" href="#Alarm.repeat_period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the time delay to automatically create an alarm after it has
+fired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">double</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.vessel">
+<tt class="descname">vessel</tt><a class="headerlink" href="#Alarm.vessel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the vessel that the alarm is attached to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../space-center/vessel.html#Vessel" title="Vessel"><tt class="xref py py-class docutils literal"><span class="pre">Vessel</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.xfer_origin_body">
+<tt class="descname">xfer_origin_body</tt><a class="headerlink" href="#Alarm.xfer_origin_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the celestial body the vessel is departing from.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../space-center/celestial-body.html#CelestialBody" title="CelestialBody"><tt class="xref py py-class docutils literal"><span class="pre">CelestialBody</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Alarm.xfer_target_body">
+<tt class="descname">xfer_target_body</tt><a class="headerlink" href="#Alarm.xfer_target_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets or sets the celestial body the vessel is arriving at.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../space-center/celestial-body.html#CelestialBody" title="CelestialBody"><tt class="xref py py-class docutils literal"><span class="pre">CelestialBody</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Alarm.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="headerlink" href="#Alarm.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the alarm.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="alarm-type.html" class="btn btn-neutral float-right" title="AlarmType">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kerbal-alarm-clock.html" class="btn btn-neutral" title="KerbalAlarmClock"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, djungelorm.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.9',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61341323-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

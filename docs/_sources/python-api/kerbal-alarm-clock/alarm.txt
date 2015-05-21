@@ -1,0 +1,92 @@
+Alarm
+=====
+
+.. class:: Alarm
+
+   Represents an alarm. Obtained by calling :attr:`KerbalAlarmClock.alarms`,
+   :meth:`KerbalAlarmClock.alarm_with_name` or
+   :meth:`KerbalAlarmClock.alarms_with_type`.
+
+   .. attribute:: action
+
+      Gets or sets the action that the alarm triggers.
+
+      :rtype: :class:`AlarmAction`
+
+   .. attribute:: margin
+
+      Gets or sets the number of seconds before the event that the alarm will
+      fire.
+
+      :rtype: double
+
+   .. attribute:: time
+
+      Gets or sets the time at which the alarm will fire.
+
+      :rtype: double
+
+   .. attribute:: type
+
+      Gets or sets the type of the alarm.
+
+      :rtype: :class:`AlarmType`
+
+   .. attribute:: id
+
+      Gets the unique identifier for the alarm.
+
+      :rtype: string
+
+   .. attribute:: name
+
+      Gets or sets the short name of the alarm.
+
+      :rtype: string
+
+   .. attribute:: notes
+
+      Gets or sets the long description of the alarm.
+
+      :rtype: string
+
+   .. attribute:: remaining
+
+      Gets the number of seconds until the alarm will fire.
+
+      :rtype: double
+
+   .. attribute:: repeat
+
+      Gets or sets whether the alarm should be repeated after it has fired.
+
+      :rtype: bool
+
+   .. attribute:: repeat_period
+
+      Gets or sets the time delay to automatically create an alarm after it has
+      fired.
+
+      :rtype: double
+
+   .. attribute:: vessel
+
+      Gets or sets the vessel that the alarm is attached to.
+
+      :rtype: :class:`Vessel`
+
+   .. attribute:: xfer_origin_body
+
+      Gets or sets the celestial body the vessel is departing from.
+
+      :rtype: :class:`CelestialBody`
+
+   .. attribute:: xfer_target_body
+
+      Gets or sets the celestial body the vessel is arriving at.
+
+      :rtype: :class:`CelestialBody`
+
+   .. method:: delete ()
+
+      Deletes the alarm.

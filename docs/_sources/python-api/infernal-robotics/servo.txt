@@ -1,0 +1,128 @@
+Servo
+=====
+
+.. class:: Servo
+
+   Represents a servo. Obtained using :attr:`ControlGroup.servos` or
+   :attr:`ControlGroup.servo_with_name` or :attr:`InfernalRobotics.servo_with_name`.
+
+   .. attribute:: name
+
+      Gets or sets the name of the servo.
+
+      :rtype: string
+
+   .. attribute:: highlight
+
+      Sets whether the servo should be highlighted in-game.
+
+      :rtype: bool
+
+   .. attribute:: position
+
+      Gets the position of the servo.
+
+      :rtype: float
+
+   .. attribute:: min_config_position
+
+      Gets the minimum position of the servo, specified by the part configuration.
+
+      :rtype: float
+
+   .. attribute:: max_config_position
+
+      Gets the maximum position of the servo, specified by the part configuration.
+
+      :rtype: float
+
+   .. attribute:: min_position
+
+      Gets or sets the minimum position of the servo, specified by the in-game tweak menu.
+
+      :rtype: float
+
+   .. attribute:: max_position
+
+      Gets or sets the maximum position of the servo, specified by the in-game tweak menu.
+
+      :rtype: float
+
+   .. attribute:: config_speed
+
+      Gets the speed multiplier of the servo, specified by the part configuration.
+
+      :rtype: float
+
+   .. attribute:: speed
+
+      Gets or sets the speed multiplier of the servo, specified by the in-game tweak menu.
+
+      :rtype: float
+
+   .. attribute:: current_speed
+
+      Gets or sets the current speed at which the servo is moving.
+
+      :rtype: float
+
+   .. attribute:: acceleration
+
+      Gets or sets the current speed multiplier set in the UI.
+
+      :rtype: float
+
+   .. attribute:: is_moving
+
+      Gets whether the servo is moving.
+
+      :rtype: bool
+
+   .. attribute:: is_free_moving
+
+      Gets whether the servo is freely moving.
+
+      :rtype: bool
+
+   .. attribute:: is_locked
+
+      Gets or sets whether the servo is locked.
+
+      :rtype: bool
+
+   .. attribute:: is_axis_inverted
+
+      Gets or sets whether the servos axis is inverted.
+
+      :rtype: bool
+
+   .. method:: move_right ()
+
+      Moves the servo to the right.
+
+   .. method:: move_left ()
+
+      Moves the servo to the left.
+
+   .. method:: move_center ()
+
+      Moves the servo to the center.
+
+   .. method:: move_next_preset ()
+
+      Moves the servo to the next preset.
+
+   .. method:: move_prev_preset ()
+
+      Moves the servo to the previous preset.
+
+   .. method:: move_to (position, speed)
+
+      Moves the servo to *position* and sets the speed multiplier to *speed*.
+
+      :param float position: the position to move the servo to
+      :param float speed: speed multiplier for the movement
+
+   .. method:: stop ()
+
+      Stops servo.
